@@ -6,9 +6,10 @@ let moment = require('moment');
 let userCounter = 1;
 let currentUsers = [];
 let currentMessages = [];
+const port = process.env.PORT || 3001;
 
-server = app.listen(8080, ()=> {
-    console.log("server listening on port 3000")
+server = app.listen(port, ()=> {
+    console.log("server listening on port " + port)
 })
 
 let socket = require('socket.io')
