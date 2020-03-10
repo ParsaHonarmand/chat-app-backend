@@ -12,6 +12,12 @@ server = app.listen(port, ()=> {
     console.log("server listening on port " + port)
 })
 
+const path = require('path')
+app.use(express.static(path.join(__dirname, 'chat-app/build')))
+app.get('*', (req,res) => {
+    res.sendFile(path.join(__dirname + '/chat-app/build/index.html'))
+})
+
 let socket = require('socket.io')
 io = socket(server)
 
